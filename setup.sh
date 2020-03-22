@@ -10,19 +10,19 @@ function Update {
     case $1 in
         "arch" )
             echo "Optimizing mirrors..."
-            pacman-mirrors --fasttrack
+            pacman-mirrors --fasttrack >> setup.log 2>&1
             echo "Updating system and installing yay..."
-            pacman -Syyuu --noconfirm yay
+            pacman -Syyuu --noconfirm yay >> setup.log 2>&1
             arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client lsd obs-studio jdk8-openjdk picard fish)
-            command="yay -Syu --noconfirm ${arch_packages[*]}"
+            command="yay -Syu --noconfirm ${arch_packages[*]} >> setup.log 2>&1"
         ;;
         "ubuntu" )
             echo "Updating packages..."
-            apt update
+            apt update >> setup.log 2>&1
             echo "Upgrading system..."
-            apt upgrade -y
+            apt upgrade -y >> setup.log 2>&1
             ubuntu_packages=()
-            command="apt install -y ${ubuntu_packages[*]}"
+            command="apt install -y ${ubuntu_packages[*]} >> setup.log 2>&1"
         ;;
         *)
             exit 1
@@ -44,6 +44,7 @@ function Install {
         "ubuntu" )
             # Since not all packages are in the repos, we have to manually download and install them
             eval ${2[*]}
+
         ;;
         *)
             exit 2
@@ -51,6 +52,7 @@ function Install {
     esac
 }
 
+set -e
 echo "Detecting Distro..."
 input="$(cat /etc/os-release)" # Load OS info
 
@@ -78,17 +80,18 @@ echo "Done! Starting Installation process..."
 Install $system ${command[*]}
 
 echo "Done! Installing fonts...$'\n'"
-git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts
+git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts >> setup.log 2>&1
 cd .nerd-fonts/
-./install.sh Cascadia Code
+./install.sh Cascadia Code >> setup.log 2>&1
 
 echo "Done! Making final configurations..."
-chsh -s /usr/bin/fish $USER
+chsh -s /usr/bin/fish $USER >> setup.log 2>&1
+# Install OMF
+curl -L https://get.oh-my.fish | fish >> setup.log 2>&1
+# # Setup bobthefish
+omf install bobthefish >> setup.log 2>&1
 # Pass default config
 mv config.fish ~/.config/fish/
-# Install OMF
-curl -L https://get.oh-my.fish | fish
-# # Setup bobthefish
-omf install bobthefish
 
 echo "Done! Don't forget to configure alias ls='lsd' in fish!"
+set +e
