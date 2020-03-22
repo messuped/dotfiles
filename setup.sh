@@ -9,13 +9,18 @@
 function Update {
     case $1 in
         "arch" )
-            # First optimize mirrors
-            pacman-mirrors --fasttrack && pacman -Syyuu --noconfirm yay
+            echo "Optimizing mirrors...$'\n'"
+            pacman-mirrors --fasttrack
+            echo "Updating system and installing yay...$'\n'"
+            pacman -Syyuu --noconfirm yay
             arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client lsd obs-studio jdk8-openjdk picard fish)
             command="yay -Syu --noconfirm ${arch_packages[*]}"
         ;;
         "ubuntu" )
-            apt update && apt upgrade -y
+            echo "Updating packages...$'\n'"
+            apt update
+            echo "Upgrading system...$'\n'"
+            apt upgrade -y
             ubuntu_packages=()
             command="apt install -y ${ubuntu_packages[*]}"
         ;;
@@ -24,8 +29,6 @@ function Update {
         ;;
     esac
     
-    
-    echo ${command[*]}
 }
 
 # Function Install
@@ -39,7 +42,7 @@ function Install {
         ;;
         "ubuntu" )
             # Since not all packages are in the repos, we have to manually download and install them
-            apt install -y ${2[*]}
+            eval ${2[*]}
         ;;
         *)
             exit 2
@@ -47,7 +50,7 @@ function Install {
     esac
 }
 
-# Detect OS
+echo "Detecting Distro...$'\n'"
 input="$(cat /etc/os-release)" # Load OS info
 
 # Get Distro by extracting input's 'NAME' field and subsequently extract its value
@@ -65,26 +68,26 @@ case ${distro[1]} in
         exit 1
     ;;
 esac
+echo "Done! Your distro is ${distro[1]}...$'\n'"
 
-# Update
+echo "Starting Update process...$'\n'"
 command=$(Update $system ${packages[*]})
 
-# Install:
+echo "Done! Starting Installation process...$'\n'"
 Install $system ${command[*]}
 
-# # Install Fonts
-# git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts
-# cd .nerd-fonts/
-# ./install.sh Cascadia Code
+echo "Done! Installing fonts...$'\n'"
+git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts
+cd .nerd-fonts/
+./install.sh Cascadia Code
 
-# # Setup FISH:
-# # Configure as default shell
-# chsh -s /usr/bin/fish $USER
+echo "Done! Making final configurations...$'\n'"
+chsh -s /usr/bin/fish $USER
 # # Pass default config
-# mv config.fish ~/.config/fish/
+mv config.fish ~/.config/fish/
 # # Install OMF
-# curl -L https://get.oh-my.fish | fish
+curl -L https://get.oh-my.fish | fish
 # # Setup bobthefish
-# omf install bobthefish
+omf install bobthefish
 
-echo "Don't forget to configure alias ls='lsd' in fish!"
+echo "Done! Don't forget to configure alias ls='lsd' in fish!"
