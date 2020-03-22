@@ -35,8 +35,10 @@ function Update {
 function Install {
     case $1 in
         "arch" )
-            arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client
-             lsd obs-studio jdk8-openjdk picard fish)
+            arch_packages=(
+                vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client
+             lsd obs-studio jdk8-openjdk picard fish
+            )
             yay -Syu --noconfirm ${arch_packages[*]} >> setup.log 2>&1
         ;;
         "ubuntu" )
@@ -74,7 +76,7 @@ esac
 echo "Done! Your distro is ${distro[1]} !"
 
 echo "Starting Update process..."
-command=$(Update $system ${packages[*]})
+Update $system ${packages[*]}
 
 echo "Done! Starting Installation process..."
 Install $system
