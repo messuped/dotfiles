@@ -9,17 +9,17 @@
 function Update {
     case $1 in
         "arch" )
-            echo "Optimizing mirrors...$'\n'"
+            echo "Optimizing mirrors..."
             pacman-mirrors --fasttrack
-            echo "Updating system and installing yay...$'\n'"
+            echo "Updating system and installing yay..."
             pacman -Syyuu --noconfirm yay
             arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client lsd obs-studio jdk8-openjdk picard fish)
             command="yay -Syu --noconfirm ${arch_packages[*]}"
         ;;
         "ubuntu" )
-            echo "Updating packages...$'\n'"
+            echo "Updating packages..."
             apt update
-            echo "Upgrading system...$'\n'"
+            echo "Upgrading system..."
             apt upgrade -y
             ubuntu_packages=()
             command="apt install -y ${ubuntu_packages[*]}"
@@ -50,7 +50,7 @@ function Install {
     esac
 }
 
-echo "Detecting Distro...$'\n'"
+echo "Detecting Distro..."
 input="$(cat /etc/os-release)" # Load OS info
 
 # Get Distro by extracting input's 'NAME' field and subsequently extract its value
@@ -68,12 +68,12 @@ case ${distro[1]} in
         exit 1
     ;;
 esac
-echo "Done! Your distro is ${distro[1]}...$'\n'"
+echo "Done! Your distro is ${distro[1]}..."
 
 echo "Starting Update process...$'\n'"
 command=$(Update $system ${packages[*]})
 
-echo "Done! Starting Installation process...$'\n'"
+echo "Done! Starting Installation process..."
 Install $system ${command[*]}
 
 echo "Done! Installing fonts...$'\n'"
@@ -81,7 +81,7 @@ git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts
 cd .nerd-fonts/
 ./install.sh Cascadia Code
 
-echo "Done! Making final configurations...$'\n'"
+echo "Done! Making final configurations..."
 chsh -s /usr/bin/fish $USER
 # # Pass default config
 mv config.fish ~/.config/fish/
