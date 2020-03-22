@@ -13,16 +13,12 @@ function Update {
             pacman-mirrors --fasttrack >> setup.log 2>&1
             echo "Updating system and installing yay..."
             pacman -Syyuu --noconfirm yay >> setup.log 2>&1
-            arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client lsd obs-studio jdk8-openjdk picard fish)
-            command="yay -Syu --noconfirm ${arch_packages[*]} >> setup.log 2>&1"
         ;;
         "ubuntu" )
             echo "Updating packages..."
             apt update >> setup.log 2>&1
             echo "Upgrading system..."
             apt upgrade -y >> setup.log 2>&1
-            ubuntu_packages=()
-            command="apt install -y ${ubuntu_packages[*]} >> setup.log 2>&1"
         ;;
         *)
             exit 1
@@ -39,12 +35,15 @@ function Update {
 function Install {
     case $1 in
         "arch" )
-            eval ${2[*]}
+            arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client
+             lsd obs-studio jdk8-openjdk picard fish)
+            yay -Syu --noconfirm ${arch_packages[*]} >> setup.log 2>&1
         ;;
         "ubuntu" )
-            # Since not all packages are in the repos, we have to manually download and install them
-            eval ${2[*]}
+            ubuntu_packages=()
+            command="apt install -y ${ubuntu_packages[*]} >> setup.log 2>&1"
 
+            # Since not all packages are in the repos, we have to manually download and install any missing ones
         ;;
         *)
             exit 2
@@ -77,7 +76,7 @@ echo "Starting Update process..."
 command=$(Update $system ${packages[*]})
 
 echo "Done! Starting Installation process..."
-Install $system ${command[*]}
+Install $system
 
 echo "Done! Installing fonts...$'\n'"
 git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts >> setup.log 2>&1
