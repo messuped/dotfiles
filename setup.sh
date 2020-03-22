@@ -9,10 +9,10 @@
 function Update {
     case $1 in
         "arch" )
-            echo "Optimizing mirrors..."
-            pacman-mirrors --fasttrack
-            echo "Updating system and installing yay..."
-            pacman -Syyuu --noconfirm yay
+            # echo "Optimizing mirrors..."
+            # pacman-mirrors --fasttrack
+            # echo "Updating system and installing yay..."
+            # pacman -Syyuu --noconfirm yay
             arch_packages=(vivaldi vivaldi-ffmpeg-codecs vivaldi-ffmpeg-codecs code discord lutris synology-drive-client lsd obs-studio jdk8-openjdk picard fish)
             command="yay -Syu --noconfirm ${arch_packages[*]}"
         ;;
@@ -29,6 +29,7 @@ function Update {
         ;;
     esac
     
+    echo ${command[*]}
 }
 
 # Function Install
@@ -83,9 +84,9 @@ cd .nerd-fonts/
 
 echo "Done! Making final configurations..."
 chsh -s /usr/bin/fish $USER
-# # Pass default config
+# Pass default config
 mv config.fish ~/.config/fish/
-# # Install OMF
+# Install OMF
 curl -L https://get.oh-my.fish | fish
 # # Setup bobthefish
 omf install bobthefish
