@@ -70,7 +70,7 @@ case ${distro[1]} in
 esac
 echo "Done! Your distro is ${distro[1]}..."
 
-echo "Starting Update process...$'\n'"
+echo "Starting Update process..."
 command=$(Update $system ${packages[*]})
 
 echo "Done! Starting Installation process..."
