@@ -81,7 +81,7 @@ Update $system ${packages[*]}
 echo "Done! Starting Installation process..."
 Install $system
 
-echo "Done! Installing fonts...$'\n'"
+echo "Done! Installing fonts..."
 git clone https://github.com/ryanoasis/nerd-fonts.git .nerd-fonts >> setup.log 2>&1
 cd .nerd-fonts/
 ./install.sh Cascadia Code >> setup.log 2>&1
