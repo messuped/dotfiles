@@ -10,15 +10,15 @@ function Update {
     case $1 in
         "arch" )
             echo "Optimizing mirrors..."
-            pacman-mirrors --fasttrack >> setup.log 2>&1
+            sudo pacman-mirrors --fasttrack >> setup.log 2>&1
             echo "Updating system and installing yay..."
-            pacman -Syyuu --noconfirm yay >> setup.log 2>&1
+            sudo pacman -Syyuu --noconfirm yay >> setup.log 2>&1
         ;;
         "ubuntu" )
             echo "Updating packages..."
-            apt update >> setup.log 2>&1
+            sudo apt update >> setup.log 2>&1
             echo "Upgrading system..."
-            apt upgrade -y >> setup.log 2>&1
+            sudo apt upgrade -y >> setup.log 2>&1
         ;;
         *)
             exit 1
@@ -52,6 +52,7 @@ function Install {
 }
 
 set -e
+echo date > setup.log 
 echo "Detecting Distro..."
 input="$(cat /etc/os-release)" # Load OS info
 
@@ -84,7 +85,7 @@ cd .nerd-fonts/
 ./install.sh Cascadia Code >> setup.log 2>&1
 
 echo "Done! Making final configurations..."
-chsh -s /usr/bin/fish $USER >> setup.log 2>&1
+sudo chsh -s /usr/bin/fish $USER >> setup.log 2>&1
 # Install OMF
 curl -L https://get.oh-my.fish | fish >> setup.log 2>&1
 # # Setup bobthefish
