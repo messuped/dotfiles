@@ -102,14 +102,13 @@ echo "Done! Making final configurations..."
 tput sgr0
 # Configure Fish as default shell
 sudo chsh -s /usr/bin/fish $USER
-# Install OMF
-curl -L https://get.oh-my.fish
 # Pass default config
 mv config_files/config.fish ~/.config/fish/
 
 tput setaf 2
 echo "Done! Don't forget to configure:
-1. omf install bobthefish 
-2. alias ls='lsd' in fish!"
+1. 'curl -L https://get.oh-my.fish | fish' to install Fish!
+1. 'omf install bobthefish' to install OMF theme!
+2. 'alias ls='lsd'' in Fish!"
 tput sgr0
 set +e
