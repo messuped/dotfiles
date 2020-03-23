@@ -63,7 +63,7 @@ case $system in
         wget -P ~/Downloads/synology.deb "https://global.download.synology.com/download/Tools/SynologyDriveClient/2.0.1-11061/Ubuntu/Installer/x86_64/synology-drive-client-11061.x86_64.deb"
         wget -P ~/Downloads/vivaldi.deb "https://downloads.vivaldi.com/stable/vivaldi-stable_2.11.1811.49-1_amd64.deb"
 
-        sudo dpkg -R --install Downloads/
+        sudo dpkg -R --install ~/Downloads/
     ;;
     *)
         echo tput setaf 1; $PMERR; tput sgr0
