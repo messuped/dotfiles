@@ -63,7 +63,7 @@ case $system in
 esac
 
 tput setaf 2
-echo "Done! Starting Installation process..."
+echo "Done! Starting package installation process..."
 tput sgr0
 case $system in
 "arch")
@@ -75,11 +75,14 @@ case $system in
     sudo apt install -y ${ubuntu_packages[*]}
 
     # Since not all packages are in the repos, we have to manually download and install any missing ones:
+    tput setaf 2
+    echo "Done! Starting .deb packages installation process..."
+    tput sgr0
     deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs)
     deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
 
-    for i in [0..${#deb_names[@]}]; do
-        eval "$DL_TOOL $DEB_LOC/${deb_names[$i]} ${deb_addr[$i]}"
+    for ((i = 0; i < ${#deb_names[@]}; i++)); do
+        eval "$DL_TOOL $DEB_LOC/${deb_names[$i]} ${deb_addr[$i]}" "${distro[$i]}"
     done
 
     sudo dpkg -R --install $DEB_LOC
