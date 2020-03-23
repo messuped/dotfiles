@@ -100,7 +100,7 @@ tput sgr0
 # Configure Fish as default shell
 sudo chsh -s /usr/bin/fish $USER
 # Install OMF
-curl -L https://get.oh-my.fish | fish
+curl -L https://get.oh-my.fish
 # Pass default config
 mv config_files/config.fish ~/.config/fish/
 
