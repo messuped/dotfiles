@@ -81,7 +81,7 @@ case $system in
     deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
     mkdir $DEB_LOC
     for ((i = 0; i < ${#deb_names[@]}; i++)); do
-        wget -P $DEB_LOC/${deb_names[$i]}.deb ${deb_addr[$i]}
+        wget -O $DEB_LOC/${deb_names[$i]}.deb ${deb_addr[$i]}
     done
 
     sudo dpkg -R --install $DEB_LOC
