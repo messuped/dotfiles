@@ -67,19 +67,13 @@ echo "Done! Starting Installation process..."
 tput sgr0
 case $system in
 "arch")
-    arch_packages=()
-    while IFS= read -r line; do
-        arch_packages+=($line)
-    done <config_files/arch_packages
+    arch_packages=(awk '{ print $1 }' config_files/arch_packages)
     sudo pacman -Syu --noconfirm ${arch_packages[*]}
     ;;
 "ubuntu")
-    ubuntu_packages=()
-    while IFS= read -r line; do
-        ubuntu_packages+=($line)
-    done <config_files/ubuntu_packages
-    ;;
+    ubuntu_packages=$(awk '{ print $1 }' config_files/ubuntu_packages)
     sudo apt install -y ${ubuntu_packages[*]}
+    ;;
 
     # Since not all packages are in the repos, we have to manually download and install any missing ones:
     deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs )
