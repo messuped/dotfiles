@@ -6,7 +6,7 @@ set -e
 OSERR="Error! Unknown OS!"
 PMERR="Error! Unknown Package Manager!"
 DEB_LOC="debs"
-DL_TOOL="wget -O"
+DL_TOOL="wget -4 -O"
 
 tput setaf 2
 echo "Detecting Distro..."
