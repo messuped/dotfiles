@@ -67,20 +67,18 @@ echo "Done! Starting Installation process..."
 tput sgr0
 case $system in
 "arch")
-    arch_packages=(awk '{ print $1 }' config_files/arch_packages)
+    arch_packages=$(awk '{ print $1 }' config_files/arch_packages)
     sudo pacman -Syu --noconfirm ${arch_packages[*]}
     ;;
 "ubuntu")
     ubuntu_packages=$(awk '{ print $1 }' config_files/ubuntu_packages)
     sudo apt install -y ${ubuntu_packages[*]}
-    ;;
 
     # Since not all packages are in the repos, we have to manually download and install any missing ones:
-    deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs )
-    deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs )
+    deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs)
+    deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
 
-    for i in [0..${#deb_names[@]}]
-    do
+    for i in [0..${#deb_names[@]}]; do
         eval "$DL_TOOL $DEB_LOC/${deb_names[$i]} ${deb_addr[$i]}"
     done
 
@@ -99,11 +97,12 @@ esac
 tput setaf 2
 echo "Done! Making final configurations..."
 tput sgr0
+# Configure Fish as default shell
 sudo chsh -s /usr/bin/fish $USER
 # Install OMF
 curl -L https://get.oh-my.fish | fish
 # Pass default config
-mv config.fish ~/.config/fish/
+mv config_files/config.fish ~/.config/fish/
 
 tput setaf 2
 echo "Done! Don't forget to configure:
