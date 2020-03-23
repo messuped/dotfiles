@@ -80,7 +80,7 @@ case $system in
     tput sgr0
     deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs)
     deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
-
+    mkdir $DEB_LOC
     for ((i = 0; i < ${#deb_names[@]}; i++)); do
         $loc=$DEB_LOC/${deb_names[$i]}.deb
         eval "$DL_TOOL $loc ${deb_addr[$i]}"
