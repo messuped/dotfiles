@@ -82,7 +82,7 @@ case $system in
     deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
 
     for ((i = 0; i < ${#deb_names[@]}; i++)); do
-        eval "$DL_TOOL $DEB_LOC/${deb_names[$i]} ${deb_addr[$i]}" "${distro[$i]}"
+        eval "$DL_TOOL $DEB_LOC/${deb_names[$i]} ${deb_addr[$i]}"
     done
 
     sudo dpkg -R --install $DEB_LOC
