@@ -5,7 +5,7 @@ set -e
 
 OSERR="Error! Unknown OS!"
 PMERR="Error! Unknown Package Manager!"
-DEB_LOC="~/Downloads"
+DEB_LOC="~/Downloads/my-dotfiles-debs"
 DL_TOOL="wget -P"
 
 tput setaf 2
@@ -91,6 +91,8 @@ case $system in
     done
 
     sudo dpkg -R --install $DEB_LOC
+
+    rm -rf $DEB_LOC
     ;;
 *)
     echo tput setaf 1
