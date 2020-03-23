@@ -6,6 +6,7 @@ set -e
 OSERR="Error! Unknown OS!"
 PMERR="Error! Unknown Package Manager!"
 DEB_LOC="debs"
+DL_TOOL="wget -O"
 
 tput setaf 2
 echo "Detecting Distro..."
@@ -77,11 +78,11 @@ case $system in
     tput setaf 2
     echo "Done! Starting .deb packages installation process..."
     tput sgr0
-    deb_names=$(awk '{ print $1 }' config_files/ubuntu_debs)
-    deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
+    deb_names=($(awk '{ print $1 }' config_files/ubuntu_debs))
+    deb_addr=($(awk '{ print $2 }' config_files/ubuntu_debs))
     mkdir $DEB_LOC
     for ((i = 0; i < ${#deb_names[@]}; i++)); do
-        wget -O $DEB_LOC/${deb_names[$i]}.deb ${deb_addr[$i]}
+        eval "$DL_TOOL $DEB_LOC/${deb_names[$i]}.deb ${deb_addr[$i]}"
     done
 
     sudo dpkg -R --install $DEB_LOC
