@@ -67,7 +67,7 @@ esac
 tput setaf 2; echo "Done! Making final configurations..."; tput sgr0
 sudo chsh -s /usr/bin/fish $USER
 # Install OMF
-curl -L https://get.oh-my.fish
+curl -L https://get.oh-my.fish | fish
 # Pass default config
 mv config.fish ~/.config/fish/
 
