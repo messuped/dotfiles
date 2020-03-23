@@ -82,7 +82,7 @@ case $system in
     deb_addr=$(awk '{ print $2 }' config_files/ubuntu_debs)
 
     for ((i = 0; i < ${#deb_names[@]}; i++)); do
-        $loc=$DEB_LOC/${deb_names[$i]}
+        $loc=$DEB_LOC/${deb_names[$i]}.deb
         eval "$DL_TOOL $loc ${deb_addr[$i]}"
     done
 
