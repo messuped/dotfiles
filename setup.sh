@@ -103,7 +103,7 @@ tput sgr0
 # Configure Fish as default shell
 sudo chsh -s /usr/bin/fish $USER
 # Link default configs
-ln -sf config_files/config.fish ~/.config/fish/config.fish
+ln -sf $(pwd)/config_files/config.fish ~/.config/fish/config.fish
 
 tput setaf 2
 echo "Done! Don't forget to configure:
