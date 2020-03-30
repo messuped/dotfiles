@@ -108,7 +108,7 @@ ln -sf $(pwd)/config_files/config.fish ~/.config/fish/config.fish
 tput setaf 2
 echo "Done! Don't forget to configure:
 1. 'curl -L https://get.oh-my.fish | fish' to install Fish!
-1. 'omf install bobthefish' to install OMF theme!
-2. 'alias ls='lsd' && funcsave ls' in Fish!"
+2. 'omf install bobthefish' to install OMF theme!
+3. 'alias ls=\"lsd\" && funcsave ls && alias ytdown = \"youtube-dl -f bestaudio --audio-quality 0 --audio-format flac -i -x --extract-audio\" && funcsave ytdown\" in Fish!"
 tput sgr0
 set +e
