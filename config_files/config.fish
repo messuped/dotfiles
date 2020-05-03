@@ -23,5 +23,16 @@ set -g theme_display_jobs_verbose yes
 set -g theme_color_scheme nord
 set -g theme_project_dir_length 3
 
-# Flutter 
-set -g PATH "$PATH:/home/messuped/flutter/bin"
+# PATH environment
+set -g PATH /opt/flutter/bin $PATH
+
+# Abbreviations
+abbr -a -g ls lsd
+abbr -a -g ytdl youtube-dl -f bestaudio --audio-quality 0 --audio-format flac -i -x --extract-audio
+abbr -a -g aptar sudo apt autoremove
+abbr -a -g aptin sudo apt install
+abbr -a -g aptup "sudo apt update && sudo apt upgrade"
+abbr -a -g fct cd ~/Cloud/fct
+abbr -a -g fish-conf code ~/.config/fish/config.fish
+abbr -a -g python python3
+abbr -a -g pip pip3⏎              
