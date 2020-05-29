@@ -1,29 +1,29 @@
 # Shell Theme
-set -U fish_color_normal normal
-set -U fish_color_command 81a1c1
-set -U fish_color_quote a3be8c
-set -U fish_color_redirection b48ead
-set -U fish_color_end 88c0d0
-set -U fish_color_error ebcb8b
-set -U fish_color_param eceff4
-set -U fish_color_comment 434c5e
-set -U fish_color_match --background=brblue
-set -U fish_color_selection white --bold --background=brblack
-set -U fish_color_search_match bryellow --background=brblack
-set -U fish_color_history_current --bold
-set -U fish_color_operator 00a6b2
-set -U fish_color_escape 00a6b2
-set -U fish_color_cwd green
-set -U fish_color_cwd_root red
-set -U fish_color_valid_path --underline
-set -U fish_color_autosuggestion 4c566a
-set -U fish_color_user brgreen
-set -U fish_color_host normal
-set -U fish_color_cancel -r
-set -U fish_pager_color_completion normal
-set -U fish_pager_color_description B3A06D yellow
-set -U fish_pager_color_prefix white --bold --underline
-set -U fish_pager_color_progress brwhite --background=cyan
+set -g fish_color_normal normal
+set -g fish_color_command 81a1c1
+set -g fish_color_quote a3be8c
+set -g fish_color_redirection b48ead
+set -g fish_color_end 88c0d0
+set -g fish_color_error ebcb8b
+set -g fish_color_param eceff4
+set -g fish_color_comment 434c5e
+set -g fish_color_match --background=brblue
+set -g fish_color_selection white --bold --background=brblack
+set -g fish_color_search_match bryellow --background=brblack
+set -g fish_color_history_current --bold
+set -g fish_color_operator 00a6b2
+set -g fish_color_escape 00a6b2
+set -g fish_color_cwd green
+set -g fish_color_cwd_root red
+set -g fish_color_valid_path --underline
+set -g fish_color_autosuggestion 4c566a
+set -g fish_color_user brgreen
+set -g fish_color_host normal
+set -g fish_color_cancel -r
+set -g fish_pager_color_completion normal
+set -g fish_pager_color_description B3A06D yellow
+set -g fish_pager_color_prefix white --bold --underline
+set -g fish_pager_color_progress brwhite --background=cyan
 
 # Bob The Fish
 set -g theme_display_git yes
@@ -51,7 +51,7 @@ set -g theme_color_scheme nord
 set -g theme_project_dir_length 3
 
 # PATH environment
-set -g PATH /opt/flutter/bin $PATH
+set -g PATH /opt/flutter/bin /opt/android-studio/bin $PATH
 
 # Abbreviations
 abbr -a -g ls lsd
