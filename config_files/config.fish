@@ -55,11 +55,15 @@ set -g PATH /opt/flutter/bin /opt/android-studio/bin $PATH
 
 # Abbreviations
 abbr -a -g ls lsd
-abbr -a -g ytdl youtube-dl -f bestaudio --audio-quality 0 --audio-format flac -i -x --extract-audio
+abbr -a -g ytdl youtube-dl 
+abbr -a -g ytdla youtube-dl -f bestaudio --audio-quality 0 --audio-format flac -i -x --extract-audio
+abbr -a -g fct cd ~/Cloud/fct
+abbr -a -g config-fish code ~/.config/fish/config.fish
+abbr -a -g python python3
+abbr -a -g pip pip3     
+
+# Ubuntu-specific abbreviations
 abbr -a -g aptar sudo apt autoremove
 abbr -a -g aptin sudo apt install
-abbr -a -g aptup "sudo apt update && sudo apt upgrade"
-abbr -a -g fct cd ~/Cloud/fct
-abbr -a -g fish-conf code ~/.config/fish/config.fish
-abbr -a -g python python3
-abbr -a -g pip pip3       
+abbr -a -g aptup "sudo apt update && sudo apt upgrade"  
+abbr -a -g aptpr "sudo apt purge"
