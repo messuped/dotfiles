@@ -13,6 +13,7 @@ sudo chsh -s /usr/bin/fish "$USER"
 # Install Oh My Fish
 fish <<'END_FISH'
     fish -c "$PWD/helper_scripts/oh-my-fish.fish --noninteractive --yes"
+    fish -c "omf install bobthefish"
 END_FISH
 # Link default configs
 mkdir -p ~/.config/fish/
