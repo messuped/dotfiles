@@ -656,5 +656,3 @@ end
 
 
 main $argv
-
-omf install bobthefish
