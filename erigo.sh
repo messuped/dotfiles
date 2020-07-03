@@ -42,7 +42,7 @@ detect_os() {
         invoke_script "arch-based/arch.sh"
         ;;
     "Pop!_OS")
-        invoke_script "ubuntu-based/ubuntu.sh"
+        invoke_script "popos/popos.sh"
         ;;
     *)
         print_error "$OSERR"
