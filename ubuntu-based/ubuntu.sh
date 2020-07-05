@@ -29,11 +29,6 @@ update() {
 
 install() {
 
-    # Special Installation Steps
-    print_color "Checking if any special installation steps are required..."
-    for f in "$PWD"/ubuntu-based/special_installation_scripts/*.sh; do
-        bash "$f"
-    done
 
     # Default Repo Installation
     print_color "Installing packages from repositories..."
