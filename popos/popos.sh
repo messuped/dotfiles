@@ -3,8 +3,8 @@
 # Setup error handling and logging
 set -e
 
-PACK_LIST_LOC="$PWD/ubuntu-based/ubuntu_packages"
-DEB_LIST_LOC="$PWD/ubuntu-based/ubuntu_debs"
+PACK_LIST_LOC="$PWD/popos/popos_packages"
+DEB_LIST_LOC="$PWD/popos/popos_debs"
 DEB_LOC="$PWD/debs"
 DL_TOOL="wget -4 -O"
 
@@ -32,8 +32,8 @@ install() {
 
     # Default Repo Installation
     print_color "Installing packages from repositories..."
-    mapfile -t ubuntu_packages < <(cat "$PACK_LIST_LOC")
-    eval "sudo apt install -y" "${ubuntu_packages[@]}"
+    mapfile -t popos_packages < <(cat "$PACK_LIST_LOC")
+    eval "sudo apt install -y" "${popos_packages[@]}"
 
     # Deb Installation Steps
     print_color "Done! Starting .deb packages download process..."
