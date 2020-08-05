@@ -50,9 +50,6 @@ set -g theme_display_jobs_verbose yes
 set -g theme_color_scheme nord
 set -g theme_project_dir_length 3
 
-# PATH environment
-set -g PATH /opt/flutter/bin /opt/android-studio/bin $PATH
-
 # Abbreviations
 abbr -a -g ls lsd
 abbr -a -g ytdl youtube-dl 
