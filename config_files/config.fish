@@ -63,4 +63,5 @@ abbr -a -g pip pip3
 abbr -a -g aptar sudo apt autoremove
 abbr -a -g aptin sudo apt install -y
 abbr -a -g aptup "sudo apt update && sudo apt upgrade -y"  
-abbr -a -g aptpr "sudo apt purge"
+abbr -a -g aptpr "sudo apt purge -y"
+abbr -a -g apts "apt search"

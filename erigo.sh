@@ -6,7 +6,8 @@ set -e
 USAGE="Usage: 
             -s: setup, update and install packages in a fresh system.
             -d: download, update local configurations with remote values.
-            -u: upload, update remote configurations with local values."
+            -u: upload, update remote configurations with local values.
+            -h: help, prints usage."
 OSERR="Error! Unknown OS!"
 
 print_color() {
@@ -55,11 +56,12 @@ setup=''
 download=''
 upload=''
 
-while getopts 'sdu' flag; do
+while getopts 'sduh' flag; do
     case "${flag}" in
     s) setup='true' ;;
     d) download='true' ;;
     u) upload='true' ;;
+    h) print_usage ;;
     *)
         print_usage
         exit 1
