@@ -34,7 +34,7 @@ install() {
 
     # Default Repo Installation
     print_color "Installing packages from repositories..."
-    mapfile -t arch_packages << (cat "$PACK_LIST_LOC")
+    mapfile -t arch_packages << $(cat "$PACK_LIST_LOC")
     eval "sudo pacman -Syu --noconfirm" "${arch_packages[@]}"
 }
 
