@@ -1,5 +1,5 @@
 # Open tmux by default
-if [ "$TMUX" = "" ]; then exec tmux new-session -A -s main; fi
+# if [ "$TMUX" = "" ]; then exec tmux new-session -A -s main; fi
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
