@@ -24,21 +24,17 @@ mods = "Alt"
 chars = "\u001bf"  # Skip word right
 
 [[keyboard.bindings]]
-key = "Left"
-mods = "Command"
-chars = "\u001bOH"  # Home (Command + Left Arrow)
-
-[[keyboard.bindings]]
-key = "Right"
-mods = "Command"
-chars = "\u001bOF"  # End (Command + Right Arrow)
-
-[[keyboard.bindings]]
 key = "Back"
 mods = "Command"
 chars = "\u0015"  # Delete line
 
-[[keyboard.bindings]]
-key = "Back"
-mods = "Alt"
-chars = "\u001b\u007f"  # Delete word
+# [[keyboard.bindings]]
+# key = "Left"
+# mods = "Command"
+# chars = "\u001bOH"  # Home (Command + Left Arrow)
+
+# [[keyboard.bindings]]
+# key = "Right"
+# mods = "Command"
+# chars = "\u001bOF"  # End (Command + Right Arrow)
+
