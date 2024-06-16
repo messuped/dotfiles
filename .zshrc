@@ -1,4 +1,7 @@
-# VARIABLES
+# Open tmux by default
+if [ "$TMUX" = "" ]; then exec tmux new-session -A -s main; fi
+
+# Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Golang
@@ -9,6 +12,14 @@ export PATH=$PATH:$GOPATH/bin
 # PROMPT
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/oh-my-posh.toml)"
+fi
+
+# TMUX PLUGIN MANAGER
+TMUX_HOME="${XDG_DATA_HOME:-${HOME}}/.tmux/plugins/tpm"
+
+if [ ! -d "$TMUX_HOME" ]; then
+    mkdir -p "$(dirname $TMUX_HOME)"
+    git clone https://github.com/tmux-plugins/tpm "$TMUX_HOME"
 fi
 
 # ZINIT PLUGIN MANAGER
