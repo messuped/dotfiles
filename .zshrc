@@ -1,3 +1,10 @@
+# Execute tmux automatically if using Alacritty
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    if [ -z "$TMUX" ]; then
+        tmux new-session -A -s main
+    fi
+fi
+
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
