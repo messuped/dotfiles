@@ -75,6 +75,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias c='clear'
 alias t='tmux new-session -A -s main'
+alias grep='ripgrep'
+alias find='fd'
 
 # Shell integrations
 eval "$(fzf --zsh)"
