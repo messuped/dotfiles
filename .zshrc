@@ -15,7 +15,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # PROMPT
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/oh-my-posh.toml)"
+    eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/oh-my-posh.toml)"
 fi
 
 # TMUX PLUGIN MANAGER
@@ -67,7 +67,7 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
-zstyle ':completion:*' menu 
+zstyle ':completion:*' menu
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
@@ -81,3 +81,7 @@ alias find='fd'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Adjust the completion behavior for special directories like '~' and '..'
+zstyle ':completion:*' special-dirs true
+
