@@ -15,7 +15,8 @@ export PATH=$PATH:$GOPATH/bin
 
 # PROMPT
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-    eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/oh-my-posh.toml)"
+    # Starship
+    eval "$(starship init zsh)"
 fi
 
 # TMUX PLUGIN MANAGER
