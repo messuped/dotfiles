@@ -77,6 +77,7 @@ alias c='clear'
 alias t='tmux new-session -A -s main'
 alias grep='ripgrep'
 alias find='fd'
+alias v='nvim'
 
 # Shell integrations
 eval "$(fzf --zsh)"
