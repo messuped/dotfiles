@@ -3,8 +3,11 @@ import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml",
 ]
+
+[shell]
+program = "/opt/homebrew/bin/fish"
 
 [env]
 TERM = "xterm-256color"
@@ -17,6 +20,13 @@ decorations = "buttonless"
 #blur = true
 option_as_alt = "both"
 
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+shape = "Block"
+blinking = "Always"
+
 [font]
 normal.family = "CaskaydiaCove Nerd Font Mono"
 size = 16
@@ -24,17 +34,17 @@ size = 16
 [[keyboard.bindings]]
 key = "Left"
 mods = "Alt"
-chars = "\u001bb"  # Skip word left
+chars = "\u001bb" # Skip word left
 
 [[keyboard.bindings]]
 key = "Right"
 mods = "Alt"
-chars = "\u001bf"  # Skip word right
+chars = "\u001bf" # Skip word right
 
 [[keyboard.bindings]]
 key = "Back"
 mods = "Command"
-chars = "\u0015"  # Delete line
+chars = "\u0015" # Delete line
 
 # [[keyboard.bindings]]
 # key = "Left"
@@ -45,4 +55,3 @@ chars = "\u0015"  # Delete line
 # key = "Right"
 # mods = "Command"
 # chars = "\u001bOF"  # End (Command + Right Arrow)
-
