@@ -24,12 +24,19 @@ if status is-interactive
     end
 
     # Golang
-    set -x PATH $PATH /usr/local/go/bin
     set -x GOPATH $HOME/code/go
-    set -x PATH $PATH $GOPATH/bin
 
     # Zoxide
     if type -q zoxide
         eval (zoxide init fish)
+    end
+
+    # Zellij
+    if type -q zellij
+        if test "$TERM_PROGRAM" != vscode
+            if not test $ZELLIJ -eq 0
+                zellij a -c main
+            end
+        end
     end
 end
