@@ -23,6 +23,7 @@ if status is-interactive
         eval (/opt/homebrew/bin/brew shellenv)
     end
 
+
     # Golang
     set -x GOPATH $HOME/code/go
 
@@ -31,10 +32,11 @@ if status is-interactive
         eval (zoxide init fish)
     end
 
+
     # Zellij
     if type -q zellij
         if test "$TERM_PROGRAM" != vscode
-            if not test $ZELLIJ -eq 0
+            if not set -q ZELLIJ
                 zellij a -c main
             end
         end
