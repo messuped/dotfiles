@@ -23,7 +23,6 @@ if status is-interactive
         eval (/opt/homebrew/bin/brew shellenv)
     end
 
-
     # Golang
     set -x GOPATH $HOME/code/go
 
