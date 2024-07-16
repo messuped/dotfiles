@@ -14,10 +14,7 @@ export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
 # PROMPT
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-    # Starship
-    eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
 
 # TMUX PLUGIN MANAGER
 TMUX_HOME="${XDG_DATA_HOME:-${HOME}}/.tmux/plugins/tpm"
@@ -86,4 +83,3 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Adjust the completion behavior for special directories like '~' and '..'
 zstyle ':completion:*' special-dirs true
-

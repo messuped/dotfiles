@@ -47,4 +47,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/usr/local/bin\x1e/Users/ebzsubtil/code/go/bin\x1e/Users/ebzsubtil/code/go\x1e/usr/local/go/bin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/Users/ebzsubtil/\x2epub\x2dcache/bin\x1e/usr/local/bin\x1e/Users/ebzsubtil/code/go/bin\x1e/Users/ebzsubtil/code/go\x1e/usr/local/go/bin\x1e/opt/homebrew/bin
