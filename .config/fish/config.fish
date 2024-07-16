@@ -10,6 +10,8 @@ if status is-interactive
     alias find fd
     alias v nvim
     alias cat bat
+    alias z 'zellij a -c main'
+    alias lg lazygit
 
     # Starship
     function starship_transient_prompt_func
@@ -30,14 +32,7 @@ if status is-interactive
     if type -q zoxide
         eval (zoxide init fish)
     end
-
-
-    # Zellij
-    if type -q zellij
-        if test "$TERM_PROGRAM" != vscode
-            if not set -q ZELLIJ
-                zellij a -c main
-            end
-        end
-    end
+    
+    # Fzf
+    fzf --fish | source
 end
