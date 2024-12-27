@@ -5,12 +5,10 @@ if status is-interactive
     # Aliases
     alias ls 'eza --icons --color=auto'
     alias c clear
-    alias t 'tmux new-session -A -s main'
     alias grep rg
     alias find fd
     alias v nvim
     alias cat bat
-    alias z 'zellij a -c main'
     alias lg lazygit
 
     # Starship
@@ -33,6 +31,4 @@ if status is-interactive
         eval (zoxide init fish)
     end
     
-    # Fzf
-    fzf --fish | source
 end
