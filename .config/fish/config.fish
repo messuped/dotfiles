@@ -22,6 +22,7 @@ if status is-interactive
     if test -x /opt/homebrew/bin/brew
         eval (/opt/homebrew/bin/brew shellenv)
     end
+    set -x HOMEBREW_NO_ENV_HINTS 1
 
     # Golang
     set -x GOPATH $HOME/code/go
