@@ -5,10 +5,12 @@ if status is-interactive
     # Aliases
     alias ls 'eza --icons --color=auto'
     alias c clear
+    alias t 'tmux new-session -A -s main'
     alias grep rg
-    alias find fd
+    # alias find fd
     alias v nvim
     alias cat bat
+    alias z 'zellij a -c main'
     alias lg lazygit
 
     # Starship
@@ -30,5 +32,20 @@ if status is-interactive
     if type -q zoxide
         eval (zoxide init fish)
     end
+
+    # K8s
+    if type -q kubectl
+        kubectl completion fish | source
+    end
+
+    # Fzf
+    fzf --fish | source
+
+    # Java
+    alias j21='sdk use java 21.0.6-sapmchn'
+    alias j17='sdk use java 17.0.5-sapmchn'
+    alias j11='sdk use java 11.0.24-sapmchn'
     
 end
+
+set -Ux JAXWS_HOME /Users/Eduardo.Subtil/code/jaxws-ri
