@@ -3,14 +3,13 @@ if status is-interactive
     set fish_greeting ""
 
     # Aliases
+    alias dotfiles 'cd ~/dotfiles/'
+    alias upstow 'cd ~/dotfiles && stow .'
     alias ls 'eza --icons --color=auto'
     alias c clear
-    alias t 'tmux new-session -A -s main'
     alias grep rg
-    # alias find fd
     alias v nvim
     alias cat bat
-    alias z 'zellij a -c main'
     alias lg lazygit
 
     # Starship
@@ -45,7 +44,7 @@ if status is-interactive
     alias j21='sdk use java 21.0.6-sapmchn'
     alias j17='sdk use java 17.0.5-sapmchn'
     alias j11='sdk use java 11.0.24-sapmchn'
-    
+
 end
 
 set -Ux JAXWS_HOME /Users/Eduardo.Subtil/code/jaxws-ri
