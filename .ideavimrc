@@ -1,0 +1,7 @@
+" Map Shift + L para mudar para o próximo tab
+nnoremap <S-L> :tabnext<CR>
+
+" Map Shift + H para mudar para o tab anterior
+nnoremap <S-H> :tabprevious<CR>
+
+set relativenumber number
