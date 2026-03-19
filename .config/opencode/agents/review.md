@@ -70,3 +70,5 @@ Use `git diff` and `git log` to inspect actual changes even if a diff is not pro
 ## Output contract
 
 Your entire response must follow the four-section structure above (Summary / Issues / Positives / Open Questions). The orchestrator presents your output verbatim to the user — use exact section headings. Do not add preamble or closing remarks outside the structured sections.
+
+The **Open Questions** section already exists in your output format — use it for anything unclear that should be confirmed with the author before merging. If there are genuine ambiguities that require user input before the review can be completed, add them there; the orchestrator will ask the user and resume your session with the answers.
