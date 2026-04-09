@@ -1,7 +1,10 @@
 ---
-description: Reviews code for quality and best practices
+description: Reviews code for quality and best practices using OpenAI's model. Invoke
+  in parallel with @review-gemini when a code review is requested, to provide independent
+  multi-model coverage. The tech-lead synthesises both outputs before presenting to
+  the user.
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+model: github-copilot/gpt-5
 temperature: 0.1
 permission:
   edit: deny
