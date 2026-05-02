@@ -8,7 +8,11 @@ permission:
   bash:
     "*": allow
     "git *": deny
+    "git": deny
     "rm *": deny
+    "rm": deny
+    "rmdir *": deny
+    "rmdir": deny
 ---
 
 You are a maintenance agent. Your job is to keep agent configuration files up to date with the latest available models.
