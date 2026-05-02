@@ -43,10 +43,18 @@ permission:
   edit: allow
   bash:
     "*": allow
+    "git add *": deny
+    "git add": deny
+    "git reset *": deny
+    "git reset": deny
     "git push *": deny
     "git push": deny
     "git commit *": deny
     "git commit": deny
+    "rm *": deny
+    "rm": deny
+    "rmdir *": deny
+    "rmdir": deny
   task:
     "*": deny
     "explore": allow

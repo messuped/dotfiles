@@ -1,10 +1,10 @@
 ---
-description: Reviews code for quality and best practices using OpenAI's model. Invoke
-  in parallel with @review-gemini when a code review is requested, to provide independent
-  multi-model coverage. The tech-lead synthesises both outputs before presenting to
-  the user.
+description: Reviews code for quality and best practices as part of an A/B profiling pair.
+  Invoke in parallel with @review-a when a code review is requested, to provide
+  independent multi-model coverage. The tech-lead synthesises both outputs before
+  presenting to the user.
 mode: subagent
-model: github-copilot/gpt-5
+model: github-copilot/gpt-5.5
 temperature: 0.1
 permission:
   edit: deny
