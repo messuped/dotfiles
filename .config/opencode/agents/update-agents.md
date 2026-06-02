@@ -1,7 +1,7 @@
 ---
 description: Checks all agent config files for outdated model IDs and updates them to the latest available versions
 mode: subagent
-model: github-copilot/claude-haiku-4.5
+model: github-copilot/gpt-5-mini
 temperature: 0.1
 permission:
   edit: allow
