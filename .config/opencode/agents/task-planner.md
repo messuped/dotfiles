@@ -23,7 +23,7 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+model: github-copilot/claude-haiku-4.5
 permission:
   bash: deny
   edit: deny
