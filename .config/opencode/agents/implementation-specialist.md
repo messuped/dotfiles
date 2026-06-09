@@ -84,6 +84,7 @@ Implement exactly what is delegated. No more, no less. Your code must be clean, 
 **Code Quality Standards**
 - Write idiomatic code that matches the project's language and framework conventions exactly
 - Follow existing naming conventions, formatting patterns, and file organization
+- Obey `.editorconfig` rules that apply to the file being edited (check for `.editorconfig` files at or above the target file's directory)
 - Add clear, concise comments explaining non-obvious logic or business rules
 - Keep functions focused and cohesive; prefer clarity over cleverness
 - Handle errors explicitly and appropriately for the context
