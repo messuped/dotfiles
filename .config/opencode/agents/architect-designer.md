@@ -49,7 +49,7 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-opus-4.8
+model: github-copilot/claude-opus-4.6
 permission:
   bash: deny
   edit: deny
