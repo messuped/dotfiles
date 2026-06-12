@@ -1,2 +1,6 @@
 .config/zed/.tmp*
 .secrets
+*.secrets.zshenv
+.config/zsh/secrets.zshenv
+.config/zsh/work.zshenv
+.config/.work.zshenv

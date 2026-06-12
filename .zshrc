@@ -6,7 +6,6 @@
 #   Prompt:       starship
 #   Navigation:   zoxide, fzf, fd
 #   CLI tools:    eza, bat, nvim, ripgrep
-#   Node:         nvm
 
 # =========================================================
 # History
