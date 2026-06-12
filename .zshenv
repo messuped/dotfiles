@@ -2,7 +2,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state" 
+export XDG_STATE_HOME="$HOME/.local/state"
 
 # Default editor used by git, crontab, etc.
 export EDITOR="nvim"
@@ -27,7 +27,7 @@ export MANPAGER="bat -l man -p"
 export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.private.json"
 
 # Secrets (not tracked in dotfiles)
-[[ -f ~/.secrets.zshenv ]] && source ~/.secrets.zshenv
+[[ -f ~/.config/zsh/secrets.zshenv ]] && source ~/.config/zsh/secrets.zshenv
 
 # Work-specific env vars (not tracked in dotfiles)
-[[ -f ~/.config/.work.zshenv ]] && source ~/.config/.work.zshenv
+[[ -f ~/.config/zsh/work.zshenv ]] && source ~/.config/zsh/work.zshenv
