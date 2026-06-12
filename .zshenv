@@ -27,4 +27,7 @@ export MANPAGER="bat -l man -p"
 export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.private.json"
 
 # Secrets (not tracked in dotfiles)
-[[ -f ~/.secrets ]] && source ~/.secrets
+[[ -f ~/.secrets.zshenv ]] && source ~/.secrets.zshenv
+
+# Work-specific env vars (not tracked in dotfiles)
+[[ -f ~/.config/.work.zshenv ]] && source ~/.config/.work.zshenv
