@@ -7,10 +7,20 @@ $git_state\
 $git_status\
 $cmd_duration\
 $line_break\
+$os\
 $character"""
 
 
 palette = 'catppuccin_mocha'
+
+[os]
+disabled = false
+format = "[$symbol](#blue) "
+
+[os.symbols]
+Arch    = "󰣇"
+CachyOS = "󰣇"
+Macos   = ""
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -46,7 +56,6 @@ style = "blue"
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "[$branch]($style)"
