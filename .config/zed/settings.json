@@ -7,36 +7,38 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "provider": "zed",
+  },
+  "cli_default_open_behavior": "existing_window",
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow",
+    },
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-sonnet-4-latest",
     },
-    "version": "2"
   },
   "base_keymap": "VSCode",
-  "features": {
-      "edit_prediction_provider": "zed"
-  },
   "theme": "Catppuccin Mocha",
   "ui_font_size": 18,
   "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
   "buffer_font_size": 18,
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "format_on_save": "on",
   "autosave": {
     "after_delay": {
-      "milliseconds": 500
-    }
+      "milliseconds": 500,
+    },
   },
   "terminal": {
     "shell": {
-      "program": "fish"
-    }
-  }
+      "program": "zsh",
+    },
+  },
 }
