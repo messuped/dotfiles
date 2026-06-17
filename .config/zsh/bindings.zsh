@@ -2,6 +2,9 @@
 # Keybindings
 # =========================================================
 
+# Use emacs keymap (disables vi mode / escape-to-normal behaviour)
+bindkey -e
+
 # Option+Right/Left -> move by word (macOS)
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
