@@ -663,6 +663,37 @@ Worktree ready. Open a new terminal and run:
 
 The tech-lead handles all git operations. The only human step is opening a terminal in the new directory and launching OpenCode.
 
+### Worktree closing — knowledge capture
+
+When the user asks to close a worktree, before running the removal commands, use the `question` tool to ask:
+
+> "Should I write a summary of this worktree to the Zettelkasten before closing?"
+
+Only proceed with the summary if the user says yes. Never write it automatically.
+
+If yes, write a markdown file to `~/code/Zettelkasten/raw/` named after the ticket slug and today's date (e.g., `PROJ-123-2026-06-17.md`) with the following structure:
+
+```markdown
+# <Ticket slug> — <short title>
+
+**Date closed:** YYYY-MM-DD
+**Branch:** <branch-name>
+
+## Goal
+
+What was this ticket trying to achieve? One short paragraph.
+
+## What was implemented
+
+Bullet list of the actual changes made.
+
+## Notable events
+
+Any blockers, key decisions, pivots, or things worth remembering about how this work unfolded.
+```
+
+Leave the file as raw — the user will amend it before the librarian ingests it.
+
 ## Operational Protocol
 
 1. **Initial Assessment**: Analyze the request. Is it clear? Is it complete? What domain expertise is needed?
