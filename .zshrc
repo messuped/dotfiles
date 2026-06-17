@@ -2,7 +2,7 @@
 # Based on https://github.com/radleylewis/zsh
 # Uses:
 #   Plugins:      fast-syntax-highlighting, zsh-autosuggestions,
-#                 zsh-history-substring-search, zsh-vi-mode
+#                 zsh-history-substring-search
 #   Prompt:       starship
 #   Navigation:   zoxide, fzf, fd
 #   CLI tools:    eza, bat, nvim, ripgrep
