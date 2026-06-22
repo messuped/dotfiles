@@ -21,6 +21,7 @@ alias catc='bat --style=plain --paging=never'
 # Core utilities
 # =========================================================
 
+alias brup='brew update && brew upgrade'
 alias grep='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
