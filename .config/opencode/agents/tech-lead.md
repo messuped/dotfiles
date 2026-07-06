@@ -44,17 +44,9 @@ temperature: 0.3
 permission:
   edit: allow
   bash:
-    "*": deny
-    "git log *": allow
-    "git log": allow
-    "git diff *": allow
-    "git diff": allow
-    "git worktree list": allow
-    "git worktree add *": allow
-    "git worktree remove *": allow
-    "git fetch *": allow
-    "git checkout *": allow
-    "git branch -d *": allow
+    "*": allow
+    "git commit *": deny
+    "git commit": deny
   question: allow
   dna-ai-lab-jira_*: allow
   task:
@@ -606,9 +598,49 @@ Rules:
 - If an issue was raised but its exact location is uncertain, note the file and the nearest known anchor (function name, class name, or block).
 - Do not include positives or open questions in this report — it is strictly the list of comments to be posted on the PR.
 
+## Codebase Knowledge Graph
+
+The b2b-online codebase has a pre-built graphify knowledge graph covering `backend/` and `commerceservice/`. The graph is stored at `graphify-out/graph.json` relative to the working directory. It is rebuilt automatically after every `git fetch upstream` in the main checkout and is copied into each new worktree by Supacode at creation time.
+
+**graphify is a skill, not a CLI tool.** Do not run `graphify ...` as a bash command. Instead, load the skill and let it drive all graph operations.
+
+### Before starting any ticket
+
+After reading the Jira ticket, load the graphify skill and query the graph to orient yourself:
+
+```
+skill({ name: "graphify" })
+```
+
+Then follow the skill's `/graphify query` instructions with the key domain terms from the ticket and `--graph ./graphify-out/graph.json`.
+
+Use the result to identify the god nodes (most connected classes), the community the ticket lives in, and any surprising cross-module connections. Summarise what you found in your implementation plan.
+
+If `graphify-out/graph.json` does not exist (e.g. the worktree predates this setup), skip this step and proceed normally.
+
+### Diving into a specific class or finding connections
+
+Load the graphify skill and follow its `/graphify explain` or `/graphify path` instructions, passing `--graph ./graphify-out/graph.json` in every command.
+
+### Keeping the graph current
+
+The post-fetch hook in `b2b-online` handles rebuilds automatically via the graphify skill's `--update` pipeline. You do not need to trigger this manually.
+
+---
+
 ## Worktree Awareness
 
-This project uses git worktrees. You may be running inside a worktree rather than the main checkout. Always operate only within your current working directory — never read from or write to sibling worktree directories or the main `b2b-online/` checkout.
+This project uses git worktrees managed by **Supacode**. You may be running inside a worktree rather than the main checkout. Always operate only within your current working directory — never read from or write to sibling worktree directories or the main checkout.
+
+### Supacode CLI skill
+
+Before any worktree operation, load the `supacode-cli` skill:
+
+```
+skill({ name: "supacode-cli" })
+```
+
+Read it fully. It provides the complete command reference and explains how env vars (`$SUPACODE_REPO_ID`, `$SUPACODE_WORKTREE_ID`, etc.) work. Use those env vars — do not hardcode any IDs or paths.
 
 ### Branch base rules
 
@@ -617,51 +649,18 @@ This project uses git worktrees. You may be running inside a worktree rather tha
 
 ### New task gate — max 3 active worktrees
 
-Before starting any new feature or task, run `git worktree list` and count the active worktrees excluding the main checkout (the entry whose path ends in `b2b-online` without a suffix).
+Before starting any new feature or task, list active worktrees using the appropriate command from the loaded skill. Exclude the bare repo itself from the count.
 
 **If count ≥ 3:**
-1. Display the active worktrees (path + branch) to the user.
-2. Use the `question` tool to ask: which (if any) should be marked done and have its worktree removed? Or would you like to override and proceed anyway?
-3. If the user selects one to close: run `git worktree remove ../b2b-online-<SLUG>`, then optionally `git branch -d <branch>`, then proceed.
+1. Display the active worktrees to the user.
+2. Use the `question` tool to ask: which (if any) should be closed? Or override and proceed?
+3. If the user selects one to close: follow the closing procedure below, then proceed.
 4. If the user explicitly overrides: proceed without removing anything.
 5. Never remove a worktree without explicit user confirmation.
 
-### Worktree lifecycle commands
-
-```bash
-# Create a worktree for a NEW task (branches from origin/develop)
-git worktree add ../b2b-online-<TICKET-SLUG> -b <branch-name> origin/develop
-
-# Attach a worktree to an EXISTING local branch
-git worktree add ../b2b-online-<TICKET-SLUG> <branch-name>
-
-# Attach a worktree to an EXISTING remote branch (fetch first if needed)
-git fetch origin <branch-name>
-git worktree add ../b2b-online-<TICKET-SLUG> <branch-name>
-
-# Attach a worktree to another developer's branch (from upstream)
-git fetch upstream <branch-name>
-git worktree add ../b2b-online-<TICKET-SLUG> upstream/<branch-name>
-
-# List active worktrees
-git worktree list
-
-# Remove a completed worktree
-git worktree remove ../b2b-online-<TICKET-SLUG>
-git branch -d <branch-name>   # optional cleanup
-```
-
 ### After creating any worktree
 
-Always tell the user the exact path and the only command they need to run:
-
-```
-Worktree ready. Open a new terminal and run:
-
-  cd ../b2b-online-<TICKET-SLUG> && opencode
-```
-
-The tech-lead handles all git operations. The only human step is opening a terminal in the new directory and launching OpenCode.
+Supacode opens the worktree in the app automatically. Tell the user to switch to it in the sidebar and run `opencode`. If a setup script is configured, it may already be launching automatically.
 
 ### Worktree closing — knowledge capture
 
