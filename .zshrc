@@ -85,3 +85,10 @@ source "$XDG_CONFIG_HOME/zsh/plugins.zsh"
 
 # Prompt/theme
 source "$XDG_CONFIG_HOME/zsh/prompt.zsh"
+
+# bun completions
+[ -s "/Users/Eduardo.Subtil/.bun/_bun" ] && source "/Users/Eduardo.Subtil/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

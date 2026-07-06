@@ -16,6 +16,7 @@
     }
   },
   "plugin": [
-    "@tarquinen/opencode-dcp@latest"
+    "@tarquinen/opencode-dcp@latest",
+    "oh-my-openagent@latest"
   ]
 }
