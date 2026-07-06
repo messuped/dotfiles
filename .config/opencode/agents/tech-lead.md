@@ -691,7 +691,7 @@ Bullet list of the actual changes made.
 Any blockers, key decisions, pivots, or things worth remembering about how this work unfolded.
 ```
 
-Leave the file as raw — the user will amend it before the librarian ingests it.
+Leave the file as raw — the user will amend it before @zettelkasten ingests it.
 
 ## Operational Protocol
 
