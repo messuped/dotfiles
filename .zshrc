@@ -92,3 +92,7 @@ source "$XDG_CONFIG_HOME/zsh/prompt.zsh"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# peon-ping quick controls
+alias peon="bash /Users/Eduardo.Subtil/.claude/hooks/peon-ping/peon.sh"
+[ -f /Users/Eduardo.Subtil/.claude/hooks/peon-ping/completions.bash ] && source /Users/Eduardo.Subtil/.claude/hooks/peon-ping/completions.bash
