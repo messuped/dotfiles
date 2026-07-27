@@ -23,8 +23,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Pager
 export MANPAGER="bat -l man -p"
 
-# Opencode
+# Opencode / AI
 export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.private.json"
+export COLI_MODEL="~/models/glm52_i4"
 
 # Secrets (not tracked in dotfiles)
 [[ -f ~/.config/zsh/secrets.zshenv ]] && source ~/.config/zsh/secrets.zshenv
