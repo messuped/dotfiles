@@ -1,3 +1,7 @@
 .config/zsh/secrets.zshenv
 .config/zsh/work.zshenv
 .config/opencode/oh-my-openagent.json
+
+# Zed
+.config/zed/.tmp*
+.config/zed/.DS_Store
