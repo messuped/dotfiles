@@ -33,8 +33,7 @@ The shell configuration is modular, split across several sourced files:
 - **`.config/zsh/aliases.zsh`** — Aliases: `eza` (as `ls`/`ll`/`la`/`tree`), `bat` (as
   `cat`), `nvim` (as `vim`), `rg` (as `grep`), git shortcuts, `lazygit`.
   Includes an `lf()` wrapper that follows the current directory on exit.
-- **`.config/zsh/bindings.zsh`** — Custom keybindings hooked into `zvm_after_init` so they
-  survive `zsh-vi-mode`'s binding reset: Ctrl+Arrow word movement, Ctrl+F fzf file picker,
+- **`.config/zsh/bindings.zsh`** — Custom keybindings (emacs mode): Ctrl+Arrow word movement, Ctrl+F fzf file picker,
   Up/Down history substring search.
 - **`.config/zsh/fzf.zsh`** — fzf defaults (`fd` backend, Catppuccin-compatible UI options,
   `bat` preview). Custom `_fzf_file_no_hidden` widget bound to Ctrl+F.
