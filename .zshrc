@@ -7,6 +7,9 @@
 #   Navigation:   zoxide, fzf, fd
 #   CLI tools:    eza, bat, nvim, ripgrep
 
+# GPG (use zsh $tty builtin, no subshell)
+export GPG_TTY=$tty
+
 # =========================================================
 # History
 # =========================================================
@@ -54,10 +57,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # lowercase input matche
 # Fuzzy finder
 # =========================================================
 
-# macOS / Homebrew (Apple Silicon)
-if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
-  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-  source /opt/homebrew/opt/fzf/shell/completion.zsh
+# Homebrew fzf (Apple Silicon / Intel)
+if [[ -f "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]]; then
+  source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+  source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 fi
 
 # =========================================================
@@ -79,13 +82,13 @@ source "$XDG_CONFIG_HOME/zsh/plugins.zsh"
 # Prompt/theme
 source "$XDG_CONFIG_HOME/zsh/prompt.zsh"
 
-# bun completions
-[ -s "/Users/Eduardo.Subtil/.bun/_bun" ] && source "/Users/Eduardo.Subtil/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
 # peon-ping quick controls
-alias peon="bash /Users/Eduardo.Subtil/.claude/hooks/peon-ping/peon.sh"
-[ -f /Users/Eduardo.Subtil/.claude/hooks/peon-ping/completions.bash ] && source /Users/Eduardo.Subtil/.claude/hooks/peon-ping/completions.bash
+alias peon="bash $HOME/.claude/hooks/peon-ping/peon.sh"
+[ -f "$HOME/.claude/hooks/peon-ping/completions.bash" ] && source "$HOME/.claude/hooks/peon-ping/completions.bash"
