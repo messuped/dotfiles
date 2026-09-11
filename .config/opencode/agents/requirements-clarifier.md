@@ -40,7 +40,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-haiku-4.5
+disable: true
+model: github-copilot/gpt-5.6-luna
+variant: low
 temperature: 0.2
 permission:
   edit: deny

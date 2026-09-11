@@ -4,7 +4,8 @@ description: Reviews code for quality and best practices as part of an A/B profi
   independent multi-model coverage. The tech-lead synthesises both outputs before
   presenting to the user.
 mode: subagent
-model: github-copilot/gpt-5.4
+model: github-copilot/gpt-5.6-terra
+variant: high
 temperature: 0.1
 permission:
   edit: deny

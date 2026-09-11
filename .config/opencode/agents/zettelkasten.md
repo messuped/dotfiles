@@ -1,14 +1,14 @@
 ---
 description: Maintains and updates the personal Zettelkasten knowledge wiki. Invoke with @zettelkasten when ingesting a new source, updating existing pages, running a lint/health-check pass, or filing a query result back into the wiki.
 mode: all
-model: github-copilot/claude-sonnet-4.6
-permissions:
+model: github-copilot/gpt-5.6-luna
+variant: max
+permission:
   read: allow
-  write: allow
+  edit: allow
   bash: deny
-  task: allow 
-  mcp:
-    dna-ai-lab-jira: allow
+  task: allow
+  "dna-ai-lab-jira_*": allow
 ---
 
 You are the Librarian — the sole maintainer of a personal knowledge wiki stored in Obsidian markdown.

@@ -49,7 +49,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
+disable: true
 model: github-copilot/claude-opus-4.6
+variant: max
 permission:
   bash: deny
   edit: deny

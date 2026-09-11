@@ -39,7 +39,9 @@ description: >-
   </commentary>
   </example>
 mode: primary
+disable: true
 model: github-copilot/claude-opus-4.6
+variant: max
 temperature: 0.3
 permission:
   edit: allow
