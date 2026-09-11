@@ -3,7 +3,9 @@ description: >-
   Use this agent when you need to run tests after implementation, diagnose
   failures, and verify that code changes work correctly.
 mode: subagent
-model: github-copilot/gpt-5.4-mini
+disable: true
+model: github-copilot/gpt-5.6-luna
+variant: medium
 temperature: 0.1
 permission:
   edit: allow
