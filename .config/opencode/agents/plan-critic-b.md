@@ -19,7 +19,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/gpt-5.4
+disable: true
+model: github-copilot/gpt-5.5
+variant: high
 temperature: 0.5
 permission:
   bash: deny

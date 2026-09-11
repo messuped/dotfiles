@@ -61,3 +61,19 @@ alias lg='lazygit'
 # =========================================================
 
 alias opencon='opencode --continue'
+
+# =========================================================
+# Local AI
+# =========================================================
+
+alias localai='llama-server \
+  -m ~/models/Qwen3.8-27B-Q4_K_M.gguf \
+  --mmproj ~/models/mmproj-Qwen3.8-27B-f16.gguf \
+  -ngl 99 -c 65536 \
+  --flash-attn on \
+  --cache-type-k q8_0 --cache-type-v q8_0 \
+  --port 8080 --parallel 1 --jinja \
+  --load-mode mlock \
+  --reasoning-preserve \
+  --image-min-tokens 1024 \
+  --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.0'

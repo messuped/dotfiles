@@ -19,7 +19,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+disable: true
+model: github-copilot/claude-opus-4.6
+variant: high
 temperature: 0.5
 permission:
   bash: deny

@@ -37,7 +37,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+disable: true
+model: github-copilot/gpt-5.3-codex
+variant: high
 temperature: 0.3
 permission:
   edit: allow
