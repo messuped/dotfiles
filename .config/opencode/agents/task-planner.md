@@ -23,7 +23,9 @@ description: >-
   </commentary>
   </example>
 mode: subagent
-model: github-copilot/claude-haiku-4.5
+disable: true
+model: github-copilot/gpt-5.6-luna
+variant: low
 permission:
   bash: deny
   edit: deny
