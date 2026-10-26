@@ -13,3 +13,7 @@
 
 # Company-specific helper script
 .config/opencode/skills/bitbucket-pr-comments/scripts/bb_pr_comments.py
+
+# Model trial harness
+.config/opencode/model-trials/
+.config/opencode/commands/model-trial.md
