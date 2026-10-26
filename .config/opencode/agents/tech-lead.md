@@ -626,7 +626,7 @@ Load the graphify skill and follow its `/graphify explain` or `/graphify path` i
 
 ### Keeping the graph current
 
-The post-fetch hook in `project` handles rebuilds automatically via the graphify skill's `--update` pipeline. You do not need to trigger this manually.
+The post-fetch hook in the project handles rebuilds automatically via the graphify skill's `--update` pipeline. You do not need to trigger this manually.
 
 ---
 
