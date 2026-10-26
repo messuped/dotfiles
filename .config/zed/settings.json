@@ -37,6 +37,7 @@
     },
   },
   "terminal": {
+    "font_family": "Maple Mono NF",
     "shell": {
       "program": "zsh",
     },

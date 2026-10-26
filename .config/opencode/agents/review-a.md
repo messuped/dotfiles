@@ -1,10 +1,9 @@
 ---
-description: Reviews code for quality and best practices as part of an A/B profiling pair.
-  Invoke in parallel with @review-b when a code review is requested, to provide
-  independent multi-model coverage. The tech-lead synthesises both outputs before
-  presenting to the user.
+description: Reviews code for quality and best practices as the single adversarial reviewer. Uses a different
+  model family (Anthropic) than the orchestrator (OpenAI GPT-6.1 Sol) for
+  independent coverage. Invoke when a code review is requested.
 mode: subagent
-model: github-copilot/claude-sonnet-5
+model: github-copilot/claude-sonnet-5.5
 variant: high
 temperature: 0.1
 permission:
