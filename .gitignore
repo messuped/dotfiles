@@ -5,3 +5,11 @@
 # Zed
 .config/zed/.tmp*
 .config/zed/.DS_Store
+
+# Local tool state / macOS
+.serena/
+.DS_Store
+**/.DS_Store
+
+# Company-specific helper script
+.config/opencode/skills/bitbucket-pr-comments/scripts/bb_pr_comments.py
