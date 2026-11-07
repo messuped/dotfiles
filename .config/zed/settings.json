@@ -7,6 +7,10 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Catppuccin Mocha",
+  "session": {
+    "trust_all_worktrees": true
+  },
   "edit_predictions": {
     "provider": "zed",
   },
@@ -21,7 +25,11 @@
     },
   },
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Mocha",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
   "ui_font_size": 18,
   "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
   "buffer_font_size": 18,
