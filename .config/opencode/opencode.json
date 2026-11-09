@@ -1,28 +1,33 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": [
-    "caveman.md"
+  "permissions": [
+    { "action": "read", "resource": "*.env", "effect": "deny" },
+    { "action": "read", "resource": "*.env.*", "effect": "deny" },
+    { "action": "read", "resource": "*.env.example", "effect": "allow" },
+    { "action": "read", "resource": "~/.ssh/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.aws/*", "effect": "deny" },
+    { "action": "shell", "resource": "git commit *", "effect": "ask" },
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+    { "action": "shell", "resource": "git push --force*", "effect": "deny" },
+    { "action": "shell", "resource": "git push -f*", "effect": "deny" },
+    { "action": "shell", "resource": "git push * --force*", "effect": "deny" },
+    { "action": "shell", "resource": "git push * -f*", "effect": "deny" },
+    { "action": "shell", "resource": "git push * +*", "effect": "deny" },
+    { "action": "shell", "resource": "git reset --hard*", "effect": "deny" },
+    { "action": "shell", "resource": "git clean *", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -fr *", "effect": "ask" }
   ],
-  "provider": {
-    "llamacpp": {
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseURL": "http://127.0.0.1:8080/v1"
-      },
-      "models": {
-        "qwen3.8-27b-local": {
-          "name": "Qwen3.8 27B (local)",
-          "tool_call": true,
-          "limit": {
-            "context": 65536,
-            "output": 4096
-          }
-        }
-      }
+  "agents": {
+    "explore": { "model": "github-copilot/gpt-6-luna#low" },
+    "compaction": { "model": "github-copilot/gpt-6-luna#low" }
+  },
+  "compaction": { "keep": { "tokens": 30000 } },
+  "mcp": {
+    "servers": {
+      "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp", "oauth": false },
+      "grep_app": { "type": "remote", "url": "https://mcp.grep.app", "oauth": false }
     }
   },
-  "plugin": [
-    "@tarquinen/opencode-dcp@latest",
-    "@dietrichgebert/ponytail"
-  ]
+  "plugins": ["@dietrichgebert/ponytail@5.3.3"]
 }

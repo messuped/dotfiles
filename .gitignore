@@ -1,6 +1,14 @@
 .config/zsh/secrets.zshenv
 .config/zsh/work.zshenv
-.config/opencode/oh-my-openagent.json
+
+# opencode: machine-local overlay and runtime files
+.config/opencode/opencode.private.json
+.config/opencode/service.json
+.config/opencode/tui.json
+.config/opencode/node_modules/
+.config/opencode/plugins/orca-*
+.config/opencode/.ponytail-active
+.DS_Store
 
 # Zed
 .config/zed/.tmp*
